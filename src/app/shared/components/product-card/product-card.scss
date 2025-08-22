@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+}
+.product-card {
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-content {
+  flex-grow: 1;
+}
+mat-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
