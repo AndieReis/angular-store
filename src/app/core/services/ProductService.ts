@@ -13,4 +13,8 @@ export class ProductService {
   getProducts() {
     return this.http.get<any[]>(`${this.apiURL}/products`);
   }
+
+  getProductsById(id: number) {
+    return this.http.get<any[]>(`${this.apiURL}/products/${id}`);
+  }
 }
