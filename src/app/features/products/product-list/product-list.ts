@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ProductService } from '../../../core/services/ProductService';
 import { CommonModule } from '@angular/common';
 import { ProductCard } from '../../../shared/components/product-card/product-card';
+import { Product } from '../../../models/product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +14,7 @@ import { ProductCard } from '../../../shared/components/product-card/product-car
 export class ProductList {
   //Injetando o Service
   private productService = inject(ProductService);
-  products: any[] = [];
+  products: Product[] = [];
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data) => {
