@@ -10,4 +10,16 @@ export const routes: Routes = [
         (r) => r.PRODUCTS_ROUTES
       ),
   },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./shared/components/about/about.routes').then(
+        (r) => r.ABOUT_ROUTES
+      ),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./features/auth/auth.routes').then((r) => r.AUTH_ROUTES),
+  },
 ];

@@ -2,7 +2,13 @@
   <span>Angular Store</span>
   <span class="spacer"></span>
   <button mat-button routerLink="/home">Home</button>
+  <button mat-button routerLink="/about">Sobre</button>
+
   <button mat-button routerLink="/cart">Carrinho</button>
-  <button mat-button routerLink="/login">Login</button>
-  <button mat-button routerLink="/cart">Carrinho</button>
+
+  @if (auth.isLoggedIn()) {
+  <button mat-button (click)="logOut()">Deslogar</button>
+  } @else {
+  <button mat-button routerLink="/login">Entrar</button>
+  }
 </mat-toolbar>
