@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Auth } from '../../../core/services/auth';
+import { AuthService } from '../../../core/services/authService';
 import {
   FormBuilder,
   FormGroup,
@@ -31,7 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class Login {
   loginForm: FormGroup;
   private fb = inject(FormBuilder);
-  private authService = inject(Auth);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   constructor() {

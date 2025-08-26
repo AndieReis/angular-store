@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
-import { Auth } from '../../../core/services/auth';
+import { AuthService } from '../../../core/services/authService';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +12,7 @@ import { Auth } from '../../../core/services/auth';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
-  auth = inject(Auth);
+  auth = inject(AuthService);
 
   logOut() {
     this.auth.logout();

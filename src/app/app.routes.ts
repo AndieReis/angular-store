@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { adminGuard } from './core/guards/admin-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,17 @@ export const routes: Routes = [
       import('./shared/components/about/about.routes').then(
         (r) => r.ABOUT_ROUTES
       ),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./features/admin/dashboard.routes').then((r) => r.ADMIN_ROUTES),
+    canActivate: [adminGuard],
+  },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./features/cart/cart.routes').then((r) => r.CART_ROUTES),
   },
   {
     path: 'login',
