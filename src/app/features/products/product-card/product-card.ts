@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Product } from '../../../models/product.model';
 import { RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ProductDetail } from '../../../features/products/product-detail/product-detail';
+import { ProductDetail } from '../product-detail/product-detail';
 
 @Component({
   selector: 'app-product-card',
