@@ -1,3 +1,29 @@
-<p>Bem vindo ao painel administrativo!</p>
+<div class="admin-container">
+  <h1>Bem vindo ao painel administrativo!</h1>
 
-<router-outlet></router-outlet>
+  <div class="admin-buttons">
+    <button
+      routerLink="products"
+      mat-fab
+      extended
+      routerLinkActive
+      #rlaProducts="routerLinkActive"
+      [color]="rlaProducts.isActive ? 'primary' : undefined"
+    >
+      <mat-icon>settings</mat-icon>Produtos
+    </button>
+
+    <button
+      routerLink="user"
+      mat-fab
+      extended
+      routerLinkActive
+      #rlaUser="routerLinkActive"
+      [color]="rlaUser.isActive ? 'primary' : undefined"
+    >
+      <mat-icon>manage_accounts</mat-icon>Usuários
+    </button>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

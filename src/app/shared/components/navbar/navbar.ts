@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../../core/services/authService';
 import { CartService } from '../../../core/services/cartService';
 
@@ -19,13 +19,15 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatBadgeModule,
   ],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.scss',
+  styleUrls: ['./navbar.scss'],
 })
 export class Navbar {
   auth = inject(AuthService);
   cartService = inject(CartService);
+  router = inject(Router);
 
   logOut() {
     this.auth.logout();
+    this.router.navigate(['/home']);
   }
 }
