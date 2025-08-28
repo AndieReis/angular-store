@@ -5,7 +5,7 @@ import { ProductManagementComponent } from './product-management.component/produ
 
 export const ADMIN_ROUTES: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
 
     children: [
