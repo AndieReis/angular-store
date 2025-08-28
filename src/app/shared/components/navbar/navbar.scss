@@ -2,6 +2,11 @@
   flex: 1 1 auto;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
 mat-toolbar {
   position: sticky;
   top: 0;
@@ -12,9 +17,17 @@ mat-toolbar {
   box-shadow: var(--mat-sys-level3);
 }
 
+.user-info {
+  padding: 0.5rem 1rem;
+}
+
+h4 {
+  margin: 0;
+  font-weight: 400;
+}
+
 mat-icon {
   margin-right: 0.5rem;
-  vertical-align: middle;
 }
 
 .login-icon {
@@ -32,4 +45,9 @@ button {
   margin-right: 48px;
   background-color: #ffffffd5;
   border-radius: 80%;
+}
+
+[mat-menu-item] {
+  display: flex;
+  align-items: center;
 }
