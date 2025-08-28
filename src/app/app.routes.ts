@@ -34,4 +34,12 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/auth/auth.routes').then((r) => r.AUTH_ROUTES),
   },
+
+  {
+    path: '**',
+    loadComponent: () =>
+      import(
+        './shared/components/not-found.component/not-found.component'
+      ).then((c) => c.NotFoundComponent),
+  },
 ];

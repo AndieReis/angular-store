@@ -6,6 +6,14 @@
 
   <span class="spacer"></span>
 
+  @if(auth.isLoggedIn()) {
+  <h2>Olá, {{ auth.currentUser() }} !</h2>
+  } @else {
+  <h2>Bem-vindo, visitante!</h2>
+  }
+  <span class="spacer"></span>
+
+
   <a mat-button routerLink="/home">Home</a>
   <a mat-button routerLink="/about">Sobre</a>
 
