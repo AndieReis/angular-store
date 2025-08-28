@@ -1,30 +1,37 @@
 <mat-toolbar color="primary">
-  <img src="assets/logo-flat.png" alt="Angular Store Logo" class="logo-img" />
-  <span>Angular Store</span>
+  <p routerLink="/home" class="logo-container">
+    <img src="assets/logo.png" alt="Angular Store Logo" class="logo-img" />
+    <span>Angular Store</span>
+  </p>
 
   <span class="spacer"></span>
-  @if(auth.isLoggedIn()) {
-  <h4>Olá, {{ auth.currentUser() }} !</h4>
-  } @else {
-  <h4>Bem-vindo, visitante!</h4>
-  }
-  <span class="spacer"></span>
 
-  <button mat-button routerLink="/home">Home</button>
-  <button mat-button routerLink="/about">Sobre</button>
+  <a mat-button routerLink="/home">Home</a>
+  <a mat-button routerLink="/about">Sobre</a>
+
   @if (auth.isAdmin()) {
   <button mat-button routerLink="/admin">Admin</button>
   } @if (auth.isLoggedIn()) {
-  <button mat-button (click)="logOut()">Sair</button>
-  } @else {
-  <button mat-button routerLink="/login">
-    <mat-icon class="login-icon">account_circle</mat-icon>
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>account_circle</mat-icon>
   </button>
-
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item disabled>
+      <h4>Bem-vindo, {{ auth.currentUser() || "visitante" }} !</h4>
+    </button>
+    <button mat-menu-item (click)="logOut()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+  } @else {
+  <button mat-icon-button routerLink="/login">
+    <mat-icon>login</mat-icon>
+  </button>
   }
 
   <button
-    mat-icon-button
+    mat-button
     routerLink="/cart"
     [matBadge]="cartService.cartQuantity()"
     [matBadgeHidden]="cartService.cartQuantity() === 0"

@@ -7,6 +7,8 @@ import { CartService } from '../../../core/services/cartService';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +19,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     RouterLink,
     MatIconModule,
     MatBadgeModule,
+    MatMenuModule,
+    MatDivider,
   ],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.scss'],
