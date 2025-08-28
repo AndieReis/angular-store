@@ -1,4 +1,4 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private apiUrl = 'https://fakestoreapi.com/auth/login';
   private router = inject(Router);
+  isAdmin = computed(() => this.currentUser() === 'johnd');
 
   isLoggedIn = signal<boolean>(false);
   currentUser = signal<string | null>(null);

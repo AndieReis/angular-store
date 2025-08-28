@@ -1,14 +1,35 @@
 <mat-toolbar color="primary">
+  <img src="assets/logo-flat.png" alt="Angular Store Logo" class="logo-img" />
   <span>Angular Store</span>
+
   <span class="spacer"></span>
+  @if(auth.isLoggedIn()) {
+  <h4>Olá, {{ auth.currentUser() }} !</h4>
+  } @else {
+  <h4>Bem-vindo, visitante!</h4>
+  }
+  <span class="spacer"></span>
+
   <button mat-button routerLink="/home">Home</button>
   <button mat-button routerLink="/about">Sobre</button>
+  @if (auth.isAdmin()) {
   <button mat-button routerLink="/admin">Admin</button>
-  <button mat-button routerLink="/cart">Carrinho</button>
-
-  @if (auth.isLoggedIn()) {
-  <button mat-button (click)="logOut()">Deslogar</button>
+  } @if (auth.isLoggedIn()) {
+  <button mat-button (click)="logOut()">Sair</button>
   } @else {
-  <button mat-button routerLink="/login">Entrar</button>
+  <button mat-button routerLink="/login">
+    <mat-icon class="login-icon">account_circle</mat-icon>
+  </button>
+
   }
+
+  <button
+    mat-icon-button
+    routerLink="/cart"
+    [matBadge]="cartService.cartQuantity()"
+    [matBadgeHidden]="cartService.cartQuantity() === 0"
+    matBadgeColor="accent"
+  >
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
 </mat-toolbar>

@@ -46,6 +46,7 @@ export class Login {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
           this.authService.saveToken(response.token);
+          this.authService.saveUser(this.loginForm.value.username);
           this.router.navigate(['/home']);
         },
         error: (err) => {

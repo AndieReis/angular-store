@@ -1,0 +1,39 @@
+.cart-container {
+  max-width: 800px;
+  margin: 40px;
+  position: left;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  height: 100px !important;
+}
+
+.item-title {
+  font-weight: bold;
+}
+
+.item-price {
+  color: #3f51b5;
+}
+
+.empty-cart-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: grey;
+  padding: 40px;
+}
+
+.cart-total {
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+}

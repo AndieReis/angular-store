@@ -3,16 +3,27 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/authService';
+import { CartService } from '../../../core/services/cartService';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatButtonModule, MatToolbarModule, RouterLink],
+  imports: [
+    MatButtonModule,
+    MatToolbarModule,
+    RouterLink,
+    MatIconModule,
+    MatBadgeModule,
+  ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
 export class Navbar {
   auth = inject(AuthService);
+  cartService = inject(CartService);
 
   logOut() {
     this.auth.logout();
