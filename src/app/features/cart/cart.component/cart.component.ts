@@ -6,10 +6,27 @@ import { Product } from '../../../models/product.model';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import {
+  MatCardHeader,
+  MatCardTitle,
+  MatCardContent,
+  MatCardActions,
+} from '@angular/material/card';
 
 @Component({
   selector: 'app-cart.component',
-  imports: [CommonModule, MatListModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatCardActions,
+  ],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })

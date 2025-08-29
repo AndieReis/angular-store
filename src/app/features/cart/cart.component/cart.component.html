@@ -1,32 +1,51 @@
 <div class="cart-container">
   <h1>Seu Carrinho</h1>
 
-  @if (cartService.cartItems().length > 0) {
-  <mat-list role="list">
-    @for (item of cartService.cartItems(); track item.id) {
-    <mat-list-item role="listitem" class="cart-item">
-      <img matListItemAvatar [src]="item.image" [alt]="item.title" />
-      <div matListItemTitle class="item-title">{{ item.title }}</div>
-      <div matListItemLine class="item-price">
-        {{ item.price | currency : "BRL" }}
+  <div class="cart-layout">
+    <div class="cart-items-list">
+      @if (cartService.cartItems().length > 0) {
+      <mat-list role="list">
+        @for (item of cartService.cartItems(); track item.id) {
+        <mat-list-item role="listitem" class="cart-item">
+          <img matListItemAvatar [src]="item.image" [alt]="item.title" />
+          <div matListItemTitle class="item-title">{{ item.title }}</div>
+          <div matListItemLine class="item-price">
+            {{ item.price | currency : "BRL" }}
+          </div>
+
+          <button mat-icon-button color="warn" (click)="removeFromCart(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-list-item>
+
+        }
+      </mat-list>
+      } @else {
+      <p class="empty-cart-message">Seu carrinho está vazio.</p>
+      }
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-card>
+      <div class="cart-total">
+        <mat-card-header>
+          <mat-card-title class="card-title">Resumo do pedido: </mat-card-title>
+        </mat-card-header>
+
+        <div class="cart-total-items">
+          <mat-card-content>
+            <h3>Total de Itens: {{ cartService.cartQuantity() }}</h3>
+            <div class="sum-row">
+              <span>Total:</span>
+              <span>{{ cartService.cartTotal() | currency : "BRL" }}</span>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary">Finalizar Compra</button>
+          </mat-card-actions>
+        </div>
       </div>
-
-      <button mat-icon-button color="warn" (click)="removeFromCart(item)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </mat-list-item>
-
-    }
-  </mat-list>
-  } @else {
-  <p class="empty-cart-message">Seu carrinho está vazio.</p>
-  }
-
-  <mat-divider></mat-divider>
-  <div class="cart-total">
-    <h3>Total de Itens: {{ cartService.cartQuantity() }}</h3>
-
-    <h2>Total: {{ cartService.cartTotal() | currency : "BRL" }}</h2>
-    <button mat-raised-button color="primary">Finalizar Compra</button>
+    </mat-card>
   </div>
 </div>

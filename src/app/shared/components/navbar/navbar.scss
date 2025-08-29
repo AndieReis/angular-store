@@ -21,9 +21,10 @@ mat-toolbar {
   padding: 0.5rem 1rem;
 }
 
-h4 {
+h2 {
   margin: 0;
   font-weight: 400;
+  font-size: 2.2rem;
 }
 
 mat-icon {
@@ -31,7 +32,8 @@ mat-icon {
 }
 
 .login-icon {
-  font-size: 1.75rem;
+  border: 1px solid #fff;
+  font-size: 5rem;
   vertical-align: middle;
 }
 
@@ -50,4 +52,5 @@ button {
 [mat-menu-item] {
   display: flex;
   align-items: center;
+  background-color: rgba(76, 76, 197, 0.623);
 }
